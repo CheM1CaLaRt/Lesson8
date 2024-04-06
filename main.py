@@ -5,10 +5,14 @@ class Weapon(ABC):
     def attack(self):
         pass
 class Sword(Weapon):
+    def __init__(self, name = "Меч"):
+        self.name = name
     def attack(self):
         print("Боец наносит удар мечом.")
 
 class Bow(Weapon):
+    def __init__(self, name = "Лук"):
+        self.name = name
     def attack(self):
         print("Боец наносит удар из лука.")
 class Fighter:
@@ -29,7 +33,7 @@ class Monster:
         self.name = name
 
     def encounter(self, fighter):
-        print(f"{fighter.name} выбирает {type(fighter.weapon).__name__}.")
+        print(f"{fighter.name} выбирает {fighter.weapon.name}.")
         fighter.attack()
         print(f"{self.name} побежден!")
 
